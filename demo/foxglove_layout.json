@@ -3,13 +3,13 @@
     "3D!2wnp644": {
       "cameraState": {
         "perspective": true,
-        "distance": 17.147499999999862,
-        "phi": 59.99999999999991,
-        "thetaOffset": 45,
+        "distance": 11.974738784764796,
+        "phi": 59.99999999999914,
+        "thetaOffset": 44.99999999999998,
         "targetOffset": [
-          0,
-          0,
-          0
+          -1.9475230652873416,
+          -8.344498062364082,
+          -2.5109639560329226e-16
         ],
         "target": [
           0,
@@ -97,7 +97,8 @@
         "poseEstimateYDeviation": 0.5,
         "poseEstimateThetaDeviation": 0.26179939
       },
-      "imageMode": {}
+      "imageMode": {},
+      "foxglovePanelTitle": "Map"
     },
     "StateTransitions!t3lug3": {
       "paths": [
@@ -134,7 +135,8 @@
       "rightButton": {
         "field": "angular-z",
         "value": -0.5
-      }
+      },
+      "foxglovePanelTitle": "Taskbot Teleop"
     },
     "Gauge!37etqbs": {
       "path": "/battery.percentage",
@@ -146,7 +148,15 @@
         "#0000ff",
         "#ff00ff"
       ],
-      "reverse": false
+      "reverse": false,
+      "foxglovePanelTitle": "Battery Percent"
+    },
+    "CallService!28cwb8w": {
+      "requestPayload": "{}",
+      "layout": "horizontal",
+      "buttonColor": "#b62020",
+      "foxglovePanelTitle": "Command Center",
+      "buttonText": "Filling Station"
     },
     "Image!2f9n3sh": {
       "cameraState": {
@@ -188,33 +198,10 @@
         "poseEstimateYDeviation": 0.5,
         "poseEstimateThetaDeviation": 0.26179939
       },
-      "imageMode": {}
-    },
-    "CallService!8xwac9": {
-      "requestPayload": "{}",
-      "layout": "horizontal",
-      "buttonColor": "#b62020",
-      "foxglovePanelTitle": "Filling Station",
-      "buttonText": "Filling Station",
-      "serviceName": ""
-    },
-    "CallService!28cwb8w": {
-      "requestPayload": "{}",
-      "layout": "horizontal",
-      "buttonColor": "#b62020",
-      "foxglovePanelTitle": "Filling Station",
-      "buttonText": "Filling Station"
-    },
-    "CallService!25izq7f": {
-      "requestPayload": "{}",
-      "layout": "horizontal",
-      "buttonColor": "#b62020",
-      "foxglovePanelTitle": "Keg_skid Station"
-    },
-    "CallService!2rr1xoq": {
-      "requestPayload": "{}",
-      "layout": "horizontal",
-      "buttonColor": "#b62020"
+      "imageMode": {
+        "synchronize": false
+      },
+      "foxglovePanelTitle": "Luxonis Camera"
     },
     "RosOut!3qgoe6f": {
       "searchTerms": [],
@@ -227,6 +214,37 @@
           "visible": true
         }
       }
+    },
+    "Plot!3ieguxj": {
+      "paths": [
+        {
+          "value": "/odometry/filtered.twist.twist.linear.x",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/odometry/filtered.twist.twist.linear.z",
+          "enabled": true,
+          "showLine": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "Taskbot Speed"
+    },
+    "DiagnosticSummary!36hobnn": {
+      "minLevel": 0,
+      "pinnedIds": [],
+      "hardwareIdFilter": "",
+      "topicToRender": "/diagnostics",
+      "sortByLevel": true
     }
   },
   "globalVariables": {},
@@ -250,24 +268,23 @@
     },
     "second": {
       "first": {
-        "first": "Image!2f9n3sh",
+        "first": {
+          "first": "CallService!28cwb8w",
+          "second": "Image!2f9n3sh",
+          "direction": "column",
+          "splitPercentage": 28.005284015852048
+        },
         "second": "RosOut!3qgoe6f",
-        "direction": "column"
+        "direction": "column",
+        "splitPercentage": 61.39497161394972
       },
       "second": {
-        "first": {
-          "first": {
-            "first": "CallService!8xwac9",
-            "second": "CallService!28cwb8w",
-            "direction": "column"
-          },
-          "second": "CallService!25izq7f",
-          "direction": "column"
-        },
-        "second": "CallService!2rr1xoq",
-        "direction": "row"
+        "direction": "row",
+        "second": "DiagnosticSummary!36hobnn",
+        "first": "Plot!3ieguxj"
       },
-      "direction": "column"
+      "direction": "column",
+      "splitPercentage": 77.1782685805177
     },
     "direction": "row"
   }
