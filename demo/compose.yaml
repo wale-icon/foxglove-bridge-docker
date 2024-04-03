@@ -1,8 +1,4 @@
 services:
-  talker:
-    image: husarion/ros2-demo-nodes:humble
-    command: ros2 run demo_nodes_cpp talker
-
   foxglove-bridge:
     # image: husarion/foxglove-bridge:humble-0.7.2-20231013
     build:
@@ -15,10 +11,10 @@ services:
   foxglove:
     image: husarion/foxglove:1.72.0
     ports:
-      - 8080:8080
+      - 9090:9090
     volumes:
       - ./foxglove_layout.json:/foxglove/default-layout.json
     environment:
       - DS_TYPE=foxglove-websocket
       - DS_PORT=8766
-      - UI_PORT=8080
+      - UI_PORT=9090
