@@ -3,13 +3,13 @@
     "3D!2wnp644": {
       "cameraState": {
         "perspective": true,
-        "distance": 75.89554049205253,
-        "phi": 59.99999999999891,
-        "thetaOffset": 45.00000000000001,
+        "distance": 11.974738784764796,
+        "phi": 59.99999999999914,
+        "thetaOffset": 44.99999999999998,
         "targetOffset": [
-          -2.0576397114117015,
-          -8.23438141623972,
-          -2.424517298205219e-16
+          -1.9475230652873416,
+          -8.344498062364082,
+          -2.5109639560329226e-16
         ],
         "target": [
           0,
@@ -100,20 +100,6 @@
       "imageMode": {},
       "foxglovePanelTitle": "Map"
     },
-    "CallService!42lsn4m": {
-      "requestPayload": "{}",
-      "layout": "horizontal",
-      "foxglovePanelTitle": "E-stop",
-      "buttonText": "E-stop",
-      "serviceName": "/hardware/e_stop_trigger"
-    },
-    "CallService!xg85": {
-      "requestPayload": "{}",
-      "layout": "horizontal",
-      "foxglovePanelTitle": "Reset E-stop",
-      "buttonText": "Reset E-stop",
-      "serviceName": "/hardware/e_stop_reset"
-    },
     "StateTransitions!t3lug3": {
       "paths": [
         {
@@ -152,25 +138,10 @@
       },
       "foxglovePanelTitle": "Taskbot Teleop"
     },
-    "Indicator!3gxukc9": {
-      "path": "/battery.current",
-      "style": "background",
-      "fallbackColor": "#e4d620",
-      "fallbackLabel": "False",
-      "rules": [
-        {
-          "operator": ">",
-          "rawValue": "0",
-          "color": "#68e24a",
-          "label": "True"
-        }
-      ],
-      "foxglovePanelTitle": "Charging"
-    },
     "Gauge!37etqbs": {
       "path": "/battery.percentage",
       "minValue": 0,
-      "maxValue": 1,
+      "maxValue": 100,
       "colorMap": "red-yellow-green",
       "colorMode": "colormap",
       "gradient": [
@@ -181,68 +152,11 @@
       "foxglovePanelTitle": "Battery Percent"
     },
     "CallService!28cwb8w": {
-      "requestPayload": "{\n\"integers\": 0}",
+      "requestPayload": "{}",
       "layout": "horizontal",
       "buttonColor": "#b62020",
       "foxglovePanelTitle": "Command Center",
-      "buttonText": "Go Home",
-      "serviceName": "/set_integers"
-    },
-    "CallService!gjreck": {
-      "requestPayload": "{\n\"integers\": 1}",
-      "layout": "horizontal",
-      "buttonColor": "#b62020",
-      "foxglovePanelTitle": "keg_skid station",
-      "buttonText": "Go keg_skid station",
-      "serviceName": "/set_integers"
-    },
-    "CallService!25abs9f": {
-      "requestPayload": "{\n\"integers\": 4}",
-      "layout": "horizontal",
-      "buttonColor": "#b62020",
-      "foxglovePanelTitle": "station 4",
-      "buttonText": "Go station 4",
-      "serviceName": "/set_integers"
-    },
-    "CallService!2yfge3d": {
-      "requestPayload": "{\n\"integers\": 5}",
-      "layout": "horizontal",
-      "buttonColor": "#b62020",
-      "foxglovePanelTitle": "station 5",
-      "buttonText": "Go station 5",
-      "serviceName": "/set_integers"
-    },
-    "CallService!4i8ivhy": {
-      "requestPayload": "{\n\"integers\": 2}",
-      "layout": "horizontal",
-      "buttonColor": "#b62020",
-      "foxglovePanelTitle": "station 2",
-      "buttonText": "Go station 2",
-      "serviceName": "/set_integers"
-    },
-    "CallService!3d46ejx": {
-      "requestPayload": "{\n\"integers\": 3}",
-      "layout": "horizontal",
-      "buttonColor": "#b62020",
-      "foxglovePanelTitle": "Command Center",
-      "buttonText": "Go station 3",
-      "serviceName": "/set_integers"
-    },
-    "CallService!39omm4q": {
-      "requestPayload": "{\n\"integers\": 6}",
-      "layout": "horizontal",
-      "buttonColor": "#b62020",
-      "foxglovePanelTitle": "station 6",
-      "buttonText": "Go station 6",
-      "serviceName": "/set_integers"
-    },
-    "CallService!1sr8rwa": {
-      "requestPayload": "{\n\"integers\": 7}",
-      "layout": "horizontal",
-      "buttonColor": "#b62020",
-      "foxglovePanelTitle": "station 7",
-      "buttonText": "Go station 7",
-      "serviceName": "/set_integers"
+      "buttonText": "Filling Station"
     },
     "Image!2f9n3sh": {
       "cameraState": {
@@ -285,9 +199,7 @@
         "poseEstimateThetaDeviation": 0.26179939
       },
       "imageMode": {
-        "synchronize": false,
-        "imageTopic": "/oak/rgb/image_raw",
-        "calibrationTopic": "/oak/rgb/camera_info"
+        "synchronize": false
       },
       "foxglovePanelTitle": "Luxonis Camera"
     },
@@ -344,66 +256,23 @@
     "first": {
       "first": "3D!2wnp644",
       "second": {
-        "first": {
-          "first": {
-            "first": "CallService!42lsn4m",
-            "second": "CallService!xg85",
-            "direction": "column",
-            "splitPercentage": 60.99290780141845
-          },
-          "second": "StateTransitions!t3lug3",
-          "direction": "row"
-        },
+        "first": "StateTransitions!t3lug3",
         "second": {
           "first": "Teleop!2vmc7li",
-          "second": {
-            "first": "Indicator!3gxukc9",
-            "second": "Gauge!37etqbs",
-            "direction": "row"
-          },
+          "second": "Gauge!37etqbs",
           "direction": "row"
         },
-        "direction": "column",
-        "splitPercentage": 76.03824042963497
+        "direction": "column"
       },
-      "direction": "column",
-      "splitPercentage": 23.357870087400197
+      "direction": "column"
     },
     "second": {
       "first": {
         "first": {
-          "first": {
-            "first": {
-              "first": {
-                "first": "CallService!28cwb8w",
-                "second": "CallService!gjreck",
-                "direction": "row"
-              },
-              "second": {
-                "first": "CallService!25abs9f",
-                "second": "CallService!2yfge3d",
-                "direction": "row"
-              },
-              "direction": "column"
-            },
-            "second": {
-              "first": {
-                "first": "CallService!4i8ivhy",
-                "second": "CallService!3d46ejx",
-                "direction": "row"
-              },
-              "second": {
-                "first": "CallService!39omm4q",
-                "second": "CallService!1sr8rwa",
-                "direction": "row"
-              },
-              "direction": "column"
-            },
-            "direction": "row"
-          },
+          "first": "CallService!28cwb8w",
           "second": "Image!2f9n3sh",
           "direction": "column",
-          "splitPercentage": 62.44069757340651
+          "splitPercentage": 28.005284015852048
         },
         "second": "RosOut!3qgoe6f",
         "direction": "column",

@@ -2,19 +2,18 @@
   "configById": {
     "3D!2wnp644": {
       "cameraState": {
+        "distance": 11.974738784764796,
         "perspective": true,
-        "distance": 75.89554049205253,
-        "phi": 59.99999999999891,
-        "thetaOffset": 45.00000000000001,
-        "targetOffset": [
-          -2.0576397114117015,
-          -8.23438141623972,
-          -2.424517298205219e-16
-        ],
+        "phi": 59.99999999999914,
         "target": [
           0,
           0,
           0
+        ],
+        "targetOffset": [
+          -1.9475230652873416,
+          -8.344498062364082,
+          -2.5109639560329226e-16
         ],
         "targetOrientation": [
           0,
@@ -22,6 +21,7 @@
           0,
           1
         ],
+        "thetaOffset": 44.99999999999998,
         "fovy": 45,
         "near": 0.5,
         "far": 5000
@@ -104,15 +104,7 @@
       "requestPayload": "{}",
       "layout": "horizontal",
       "foxglovePanelTitle": "E-stop",
-      "buttonText": "E-stop",
-      "serviceName": "/hardware/e_stop_trigger"
-    },
-    "CallService!xg85": {
-      "requestPayload": "{}",
-      "layout": "horizontal",
-      "foxglovePanelTitle": "Reset E-stop",
-      "buttonText": "Reset E-stop",
-      "serviceName": "/hardware/e_stop_reset"
+      "buttonText": "E-stop"
     },
     "StateTransitions!t3lug3": {
       "paths": [
@@ -155,12 +147,12 @@
     "Indicator!3gxukc9": {
       "path": "/battery.current",
       "style": "background",
-      "fallbackColor": "#e4d620",
+      "fallbackColor": "#a0a0a0",
       "fallbackLabel": "False",
       "rules": [
         {
           "operator": ">",
-          "rawValue": "0",
+          "rawValue": "true",
           "color": "#68e24a",
           "label": "True"
         }
@@ -170,7 +162,7 @@
     "Gauge!37etqbs": {
       "path": "/battery.percentage",
       "minValue": 0,
-      "maxValue": 1,
+      "maxValue": 100,
       "colorMap": "red-yellow-green",
       "colorMode": "colormap",
       "gradient": [
@@ -285,9 +277,7 @@
         "poseEstimateThetaDeviation": 0.26179939
       },
       "imageMode": {
-        "synchronize": false,
-        "imageTopic": "/oak/rgb/image_raw",
-        "calibrationTopic": "/oak/rgb/camera_info"
+        "synchronize": false
       },
       "foxglovePanelTitle": "Luxonis Camera"
     },
@@ -333,6 +323,12 @@
       "hardwareIdFilter": "",
       "topicToRender": "/diagnostics",
       "sortByLevel": true
+    },
+    "CallService!xg85": {
+      "requestPayload": "{}",
+      "layout": "horizontal",
+      "foxglovePanelTitle": "Reset E-stop",
+      "buttonText": "Reset E-stop"
     }
   },
   "globalVariables": {},
@@ -348,8 +344,7 @@
           "first": {
             "first": "CallService!42lsn4m",
             "second": "CallService!xg85",
-            "direction": "column",
-            "splitPercentage": 60.99290780141845
+            "direction": "column"
           },
           "second": "StateTransitions!t3lug3",
           "direction": "row"
@@ -363,11 +358,9 @@
           },
           "direction": "row"
         },
-        "direction": "column",
-        "splitPercentage": 76.03824042963497
+        "direction": "column"
       },
-      "direction": "column",
-      "splitPercentage": 23.357870087400197
+      "direction": "column"
     },
     "second": {
       "first": {
@@ -403,7 +396,7 @@
           },
           "second": "Image!2f9n3sh",
           "direction": "column",
-          "splitPercentage": 62.44069757340651
+          "splitPercentage": 42.668428005284014
         },
         "second": "RosOut!3qgoe6f",
         "direction": "column",
