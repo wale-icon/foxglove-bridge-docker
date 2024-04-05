@@ -1,0 +1,494 @@
+{
+  "configById": {
+    "3D!2wnp644": {
+      "cameraState": {
+        "perspective": true,
+        "distance": 79.89004262318355,
+        "phi": 59.99999999999796,
+        "thetaOffset": 45.00000000000002,
+        "targetOffset": [
+          -33.31548646788927,
+          -14.864999428421601,
+          7.004515402085145e-16
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "fovy": 45,
+        "near": 0.5,
+        "far": 5000
+      },
+      "followMode": "follow-pose",
+      "scene": {},
+      "transforms": {
+        "frame:map": {
+          "visible": false
+        },
+        "frame:body_link": {
+          "visible": false
+        },
+        "frame:cover_link": {
+          "visible": false
+        },
+        "frame:fl_wheel_link": {
+          "visible": false
+        },
+        "frame:fr_wheel_link": {
+          "visible": false
+        },
+        "frame:front_bumper_link": {
+          "visible": false
+        },
+        "frame:front_light_link": {
+          "visible": false
+        },
+        "frame:imu_link": {
+          "visible": false
+        },
+        "frame:rear_bumper_link": {
+          "visible": false
+        },
+        "frame:rear_light_link": {
+          "visible": false
+        },
+        "frame:rl_wheel_link": {
+          "visible": false
+        },
+        "frame:rr_wheel_link": {
+          "visible": false
+        },
+        "frame:slamtec_rplidar_s2e_link": {
+          "visible": false
+        },
+        "frame:laser": {
+          "visible": false
+        },
+        "frame:merge_laser": {
+          "visible": false
+        },
+        "frame:velodyne_puck_link": {
+          "visible": false
+        },
+        "frame:velodyne": {
+          "visible": false
+        }
+      },
+      "topics": {
+        "/map": {
+          "visible": true,
+          "colorMode": "costmap"
+        }
+      },
+      "layers": {},
+      "publish": {
+        "type": "point",
+        "poseTopic": "/move_base_simple/goal",
+        "pointTopic": "/clicked_point",
+        "poseEstimateTopic": "/initialpose",
+        "poseEstimateXDeviation": 0.5,
+        "poseEstimateYDeviation": 0.5,
+        "poseEstimateThetaDeviation": 0.26179939
+      },
+      "imageMode": {},
+      "foxglovePanelTitle": "Map"
+    },
+    "CallService!42lsn4m": {
+      "requestPayload": "{}",
+      "layout": "horizontal",
+      "foxglovePanelTitle": "E-stop",
+      "buttonText": "E-stop",
+      "serviceName": "/hardware/e_stop_trigger",
+      "buttonColor": "#d30e1b"
+    },
+    "CallService!xg85": {
+      "requestPayload": "{}",
+      "layout": "horizontal",
+      "foxglovePanelTitle": "Reset E-stop",
+      "buttonText": "Reset E-stop",
+      "serviceName": "/hardware/e_stop_reset",
+      "buttonColor": "#0aea4f"
+    },
+    "StateTransitions!t3lug3": {
+      "paths": [
+        {
+          "value": "/behavior_tree_log.event_log[0].current_status",
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "value": "/behavior_tree_log.event_log[0].previous_status",
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "value": "/behavior_tree_log.event_log[0].node_name",
+          "timestampMethod": "receiveTime"
+        }
+      ],
+      "isSynced": true
+    },
+    "Teleop!2vmc7li": {
+      "topic": "/cmd_vel",
+      "publishRate": 1,
+      "upButton": {
+        "field": "linear-x",
+        "value": 0.5
+      },
+      "downButton": {
+        "field": "linear-x",
+        "value": -0.5
+      },
+      "leftButton": {
+        "field": "angular-z",
+        "value": 0.5
+      },
+      "rightButton": {
+        "field": "angular-z",
+        "value": -0.5
+      },
+      "foxglovePanelTitle": "Taskbot Teleop"
+    },
+    "Indicator!3gxukc9": {
+      "path": "/battery.current",
+      "style": "background",
+      "fallbackColor": "#e4d620",
+      "fallbackLabel": "False",
+      "rules": [
+        {
+          "operator": ">",
+          "rawValue": "0",
+          "color": "#68e24a",
+          "label": "True"
+        }
+      ],
+      "foxglovePanelTitle": "Charging"
+    },
+    "Gauge!37etqbs": {
+      "path": "/battery.percentage",
+      "minValue": 0,
+      "maxValue": 1,
+      "colorMap": "red-yellow-green",
+      "colorMode": "colormap",
+      "gradient": [
+        "#0000ff",
+        "#ff00ff"
+      ],
+      "reverse": false,
+      "foxglovePanelTitle": "Battery Percent"
+    },
+    "Image!2f9n3sh": {
+      "cameraState": {
+        "distance": 20,
+        "perspective": true,
+        "phi": 60,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOffset": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "thetaOffset": 45,
+        "fovy": 45,
+        "near": 0.5,
+        "far": 5000
+      },
+      "followMode": "follow-pose",
+      "scene": {},
+      "transforms": {},
+      "topics": {},
+      "layers": {},
+      "publish": {
+        "type": "point",
+        "poseTopic": "/move_base_simple/goal",
+        "pointTopic": "/clicked_point",
+        "poseEstimateTopic": "/initialpose",
+        "poseEstimateXDeviation": 0.5,
+        "poseEstimateYDeviation": 0.5,
+        "poseEstimateThetaDeviation": 0.26179939
+      },
+      "imageMode": {
+        "synchronize": false,
+        "imageTopic": "/oak/rgb/image_raw",
+        "calibrationTopic": "/oak/rgb/camera_info"
+      },
+      "foxglovePanelTitle": "Luxonis Camera"
+    },
+    "Publish!2w2upg3": {
+      "buttonText": "Loading Station",
+      "buttonTooltip": "",
+      "advancedView": true,
+      "value": "{\n  \"data\": 0\n}",
+      "topicName": "/delivery_goal",
+      "datatype": "std_msgs/msg/Int16",
+      "buttonColor": "#2e11e5",
+      "foxglovePanelTitle": "Station 1"
+    },
+    "Publish!1tu33hc": {
+      "buttonText": "Keg_skid Station",
+      "buttonTooltip": "",
+      "advancedView": true,
+      "value": "{\n  \"data\": 1\n}",
+      "topicName": "/delivery_goal",
+      "datatype": "std_msgs/msg/Int16",
+      "buttonColor": "#2e11e5",
+      "foxglovePanelTitle": "Station 2"
+    },
+    "Publish!10dz1nv": {
+      "buttonText": "xx1 Station",
+      "buttonTooltip": "",
+      "advancedView": true,
+      "value": "{\n  \"data\": 2\n}",
+      "topicName": "/delivery_goal",
+      "datatype": "std_msgs/msg/Int16",
+      "buttonColor": "#2e11e5",
+      "foxglovePanelTitle": "Station 3"
+    },
+    "Publish!1wxuwgl": {
+      "buttonText": "xx2 Station",
+      "buttonTooltip": "",
+      "advancedView": true,
+      "value": "{\n  \"data\": 3\n}",
+      "topicName": "/delivery_goal",
+      "datatype": "std_msgs/msg/Int16",
+      "buttonColor": "#2e11e5",
+      "foxglovePanelTitle": "Station 4"
+    },
+    "Publish!3qi8sst": {
+      "buttonText": "xx4 Station",
+      "buttonTooltip": "",
+      "advancedView": true,
+      "value": "{\n  \"data\": 4\n}",
+      "topicName": "/delivery_goal",
+      "datatype": "std_msgs/msg/Int16",
+      "buttonColor": "#2e11e5",
+      "foxglovePanelTitle": "Station 5"
+    },
+    "Publish!aa5lv1": {
+      "buttonText": "xx5 Station",
+      "buttonTooltip": "",
+      "advancedView": true,
+      "value": "{\n  \"data\": 5\n}",
+      "topicName": "/delivery_goal",
+      "datatype": "std_msgs/msg/Int16",
+      "buttonColor": "#2e11e5",
+      "foxglovePanelTitle": "Station 6"
+    },
+    "Publish!bqnxet": {
+      "buttonText": "xx6 Station",
+      "buttonTooltip": "",
+      "advancedView": true,
+      "value": "{\n  \"data\": 6\n}",
+      "topicName": "/delivery_goal",
+      "datatype": "std_msgs/msg/Int16",
+      "buttonColor": "#2e11e5",
+      "foxglovePanelTitle": "Station 7"
+    },
+    "Image!3gch74i": {
+      "cameraState": {
+        "distance": 20,
+        "perspective": true,
+        "phi": 60,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOffset": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "thetaOffset": 45,
+        "fovy": 45,
+        "near": 0.5,
+        "far": 5000
+      },
+      "followMode": "follow-pose",
+      "scene": {},
+      "transforms": {},
+      "topics": {},
+      "layers": {},
+      "publish": {
+        "type": "point",
+        "poseTopic": "/move_base_simple/goal",
+        "pointTopic": "/clicked_point",
+        "poseEstimateTopic": "/initialpose",
+        "poseEstimateXDeviation": 0.5,
+        "poseEstimateYDeviation": 0.5,
+        "poseEstimateThetaDeviation": 0.26179939
+      },
+      "imageMode": {
+        "synchronize": false,
+        "imageTopic": "/oak/rgb/image_raw",
+        "calibrationTopic": "/oak/rgb/camera_info"
+      },
+      "foxglovePanelTitle": "Luxonis Camera"
+    },
+    "RosOut!3qgoe6f": {
+      "searchTerms": [],
+      "minLogLevel": 1,
+      "nameFilter": {
+        "foxglove_bridge": {
+          "visible": false
+        },
+        "talker": {
+          "visible": true
+        }
+      }
+    },
+    "Plot!3ieguxj": {
+      "paths": [
+        {
+          "value": "/odometry/filtered.twist.twist.linear.x",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/odometry/filtered.twist.twist.linear.z",
+          "enabled": true,
+          "showLine": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "Taskbot Speed"
+    },
+    "DiagnosticSummary!36hobnn": {
+      "minLevel": 0,
+      "pinnedIds": [],
+      "hardwareIdFilter": "",
+      "topicToRender": "/diagnostics",
+      "sortByLevel": true
+    },
+    "Publish!3i84avg": {
+      "buttonText": "xx7 Station",
+      "buttonTooltip": "",
+      "advancedView": true,
+      "value": "{\n  \"data\": 7\n}",
+      "topicName": "/delivery_goal",
+      "datatype": "std_msgs/msg/Int16",
+      "buttonColor": "#2e11e5",
+      "foxglovePanelTitle": "Station 8"
+    }
+  },
+  "globalVariables": {},
+  "userNodes": {},
+  "playbackConfig": {
+    "speed": 1
+  },
+  "layout": {
+    "first": {
+      "first": "3D!2wnp644",
+      "second": {
+        "first": {
+          "first": {
+            "first": "CallService!42lsn4m",
+            "second": "CallService!xg85",
+            "direction": "column",
+            "splitPercentage": 46.666666666666714
+          },
+          "second": "StateTransitions!t3lug3",
+          "direction": "row",
+          "splitPercentage": 23.23781778455516
+        },
+        "second": {
+          "first": "Teleop!2vmc7li",
+          "second": {
+            "first": "Indicator!3gxukc9",
+            "second": "Gauge!37etqbs",
+            "direction": "row"
+          },
+          "direction": "row"
+        },
+        "direction": "column",
+        "splitPercentage": 57.55064672351917
+      },
+      "direction": "column",
+      "splitPercentage": 59.213821635985184
+    },
+    "second": {
+      "first": {
+        "first": {
+          "first": "Image!2f9n3sh",
+          "second": {
+            "first": {
+              "first": {
+                "first": {
+                  "first": "Publish!2w2upg3",
+                  "second": "Publish!1tu33hc",
+                  "direction": "row"
+                },
+                "second": {
+                  "first": "Publish!10dz1nv",
+                  "second": "Publish!1wxuwgl",
+                  "direction": "row"
+                },
+                "direction": "row"
+              },
+              "second": {
+                "first": {
+                  "first": "Publish!3qi8sst",
+                  "second": "Publish!aa5lv1",
+                  "direction": "row"
+                },
+                "second": {
+                  "first": "Publish!bqnxet",
+                  "second": "Publish!3i84avg",
+                  "direction": "row"
+                },
+                "direction": "row"
+              },
+              "direction": "column"
+            },
+            "second": "Image!3gch74i",
+            "direction": "column",
+            "splitPercentage": 43.19682959048877
+          },
+          "direction": "row",
+          "splitPercentage": 41.52086137281294
+        },
+        "second": "RosOut!3qgoe6f",
+        "direction": "column",
+        "splitPercentage": 61.39497161394972
+      },
+      "second": {
+        "direction": "row",
+        "second": "DiagnosticSummary!36hobnn",
+        "first": "Plot!3ieguxj"
+      },
+      "direction": "column",
+      "splitPercentage": 77.1782685805177
+    },
+    "direction": "row",
+    "splitPercentage": 45.88615517673032
+  }
+}
