@@ -13,7 +13,8 @@ services:
     ports:
       - 9090:9090
     volumes:
-      - ./foxglove_layout.json:/foxglove/default-layout.json
+      #- ./foxglove_layout.json:/foxglove/default-layout.json
+      - ./foxglove_layout_publisher:/foxglove/default-layout.json
     environment:
       - DS_TYPE=foxglove-websocket
       - DS_PORT=8766
