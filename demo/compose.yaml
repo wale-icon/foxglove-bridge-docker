@@ -6,7 +6,10 @@ services:
       context: ../
     ports:
       - 8766:8766
+    volumes:
+      - /home/wale/vm_input/taskbot-simulator-ws/install/deliverybots_interfaces:/ros2_ws/install/deliverybots_interfaces
     command: ros2 launch foxglove_bridge foxglove_bridge_launch.xml port:=8766
+       capabilities:=[clientPublish,parameters,parametersSubscribe,services,connectionGraph,assets]
 
   foxglove:
     image: husarion/foxglove:1.72.0
@@ -14,7 +17,8 @@ services:
       - 9090:9090
     volumes:
       #- ./foxglove_layout.json:/foxglove/default-layout.json
-      - ./foxglove_layout_publisher:/foxglove/default-layout.json
+      #- ./foxglove_layout_publisher.json:/foxglove/default-layout.json
+      - ./foxglove_layout_service.json:/foxglove/default-layout.json
     environment:
       - DS_TYPE=foxglove-websocket
       - DS_PORT=8766

@@ -2,18 +2,18 @@
   "configById": {
     "3D!2wnp644": {
       "cameraState": {
-        "distance": 11.974738784764796,
+        "distance": 79.89004262318355,
         "perspective": true,
-        "phi": 59.99999999999914,
+        "phi": 59.99999999999796,
         "target": [
           0,
           0,
           0
         ],
         "targetOffset": [
-          -1.9475230652873416,
-          -8.344498062364082,
-          -2.5109639560329226e-16
+          -33.31548646788927,
+          -14.864999428421601,
+          7.004515402085145e-16
         ],
         "targetOrientation": [
           0,
@@ -21,7 +21,7 @@
           0,
           1
         ],
-        "thetaOffset": 44.99999999999998,
+        "thetaOffset": 45.00000000000002,
         "fovy": 45,
         "near": 0.5,
         "far": 5000
@@ -104,7 +104,17 @@
       "requestPayload": "{}",
       "layout": "horizontal",
       "foxglovePanelTitle": "E-stop",
-      "buttonText": "E-stop"
+      "buttonText": "E-stop",
+      "serviceName": "/hardware/e_stop_trigger",
+      "buttonColor": "#d30e1b"
+    },
+    "CallService!xg85": {
+      "requestPayload": "{}",
+      "layout": "horizontal",
+      "foxglovePanelTitle": "Reset E-stop",
+      "buttonText": "Reset E-stop",
+      "serviceName": "/hardware/e_stop_reset",
+      "buttonColor": "#0aea4f"
     },
     "StateTransitions!t3lug3": {
       "paths": [
@@ -147,12 +157,12 @@
     "Indicator!3gxukc9": {
       "path": "/battery.current",
       "style": "background",
-      "fallbackColor": "#a0a0a0",
+      "fallbackColor": "#e4d620",
       "fallbackLabel": "False",
       "rules": [
         {
           "operator": ">",
-          "rawValue": "true",
+          "rawValue": "0",
           "color": "#68e24a",
           "label": "True"
         }
@@ -162,7 +172,7 @@
     "Gauge!37etqbs": {
       "path": "/battery.percentage",
       "minValue": 0,
-      "maxValue": 100,
+      "maxValue": 1,
       "colorMap": "red-yellow-green",
       "colorMode": "colormap",
       "gradient": [
@@ -171,70 +181,6 @@
       ],
       "reverse": false,
       "foxglovePanelTitle": "Battery Percent"
-    },
-    "CallService!28cwb8w": {
-      "requestPayload": "{\n\"integers\": 0}",
-      "layout": "horizontal",
-      "buttonColor": "#b62020",
-      "foxglovePanelTitle": "Command Center",
-      "buttonText": "Go Home",
-      "serviceName": "/set_integers"
-    },
-    "CallService!gjreck": {
-      "requestPayload": "{\n\"integers\": 1}",
-      "layout": "horizontal",
-      "buttonColor": "#b62020",
-      "foxglovePanelTitle": "keg_skid station",
-      "buttonText": "Go keg_skid station",
-      "serviceName": "/set_integers"
-    },
-    "CallService!25abs9f": {
-      "requestPayload": "{\n\"integers\": 4}",
-      "layout": "horizontal",
-      "buttonColor": "#b62020",
-      "foxglovePanelTitle": "station 4",
-      "buttonText": "Go station 4",
-      "serviceName": "/set_integers"
-    },
-    "CallService!2yfge3d": {
-      "requestPayload": "{\n\"integers\": 5}",
-      "layout": "horizontal",
-      "buttonColor": "#b62020",
-      "foxglovePanelTitle": "station 5",
-      "buttonText": "Go station 5",
-      "serviceName": "/set_integers"
-    },
-    "CallService!4i8ivhy": {
-      "requestPayload": "{\n\"integers\": 2}",
-      "layout": "horizontal",
-      "buttonColor": "#b62020",
-      "foxglovePanelTitle": "station 2",
-      "buttonText": "Go station 2",
-      "serviceName": "/set_integers"
-    },
-    "CallService!3d46ejx": {
-      "requestPayload": "{\n\"integers\": 3}",
-      "layout": "horizontal",
-      "buttonColor": "#b62020",
-      "foxglovePanelTitle": "Command Center",
-      "buttonText": "Go station 3",
-      "serviceName": "/set_integers"
-    },
-    "CallService!39omm4q": {
-      "requestPayload": "{\n\"integers\": 6}",
-      "layout": "horizontal",
-      "buttonColor": "#b62020",
-      "foxglovePanelTitle": "station 6",
-      "buttonText": "Go station 6",
-      "serviceName": "/set_integers"
-    },
-    "CallService!1sr8rwa": {
-      "requestPayload": "{\n\"integers\": 7}",
-      "layout": "horizontal",
-      "buttonColor": "#b62020",
-      "foxglovePanelTitle": "station 7",
-      "buttonText": "Go station 7",
-      "serviceName": "/set_integers"
     },
     "Image!2f9n3sh": {
       "cameraState": {
@@ -277,9 +223,75 @@
         "poseEstimateThetaDeviation": 0.26179939
       },
       "imageMode": {
-        "synchronize": false
+        "synchronize": false,
+        "imageTopic": "/oak/rgb/image_raw",
+        "calibrationTopic": "/oak/rgb/camera_info"
       },
       "foxglovePanelTitle": "Luxonis Camera"
+    },
+    "CallService!2p6g41a": {
+      "requestPayload": "{\n\"input_integer\": 0\n}",
+      "layout": "vertical",
+      "serviceName": "/set_integers",
+      "foxglovePanelTitle": "Station 1",
+      "buttonText": "Loading Station",
+      "buttonColor": "#320fe0"
+    },
+    "CallService!2p2lj2e": {
+      "requestPayload": "{\n\"input_integer\": 1\n}",
+      "layout": "vertical",
+      "foxglovePanelTitle": "Station 2",
+      "serviceName": "/set_integers",
+      "buttonText": "Keg_skid Station",
+      "buttonColor": "#320fe0"
+    },
+    "CallService!2qxkhui": {
+      "requestPayload": "{\n\"input_integer\": 2\n}",
+      "layout": "vertical",
+      "foxglovePanelTitle": "Station 3",
+      "serviceName": "/set_integers",
+      "buttonText": "XX1_Station",
+      "buttonColor": "#320fe0"
+    },
+    "CallService!2p1qnh7": {
+      "requestPayload": "{\n\"input_integer\": 3\n\n}",
+      "layout": "vertical",
+      "foxglovePanelTitle": "Station 4",
+      "serviceName": "/set_integers",
+      "buttonText": "XX2_Station",
+      "buttonColor": "#320fe0"
+    },
+    "CallService!3ovxepu": {
+      "requestPayload": "{\n\"input_integer\": 4\n}",
+      "layout": "vertical",
+      "serviceName": "/set_integers",
+      "foxglovePanelTitle": "Station 5",
+      "buttonText": "XX3_Station",
+      "buttonColor": "#320fe0"
+    },
+    "CallService!ajrov0": {
+      "requestPayload": "{\n\"input_integer\": 5\n}",
+      "layout": "vertical",
+      "serviceName": "/set_integers",
+      "foxglovePanelTitle": "Station 6",
+      "buttonText": "XX4_Station",
+      "buttonColor": "#320fe0"
+    },
+    "CallService!8bvhxa": {
+      "requestPayload": "{\n\"input_integer\": 6\n}",
+      "layout": "vertical",
+      "foxglovePanelTitle": "Station 7",
+      "serviceName": "/set_integers",
+      "buttonText": "XX5_Station",
+      "buttonColor": "#320fe0"
+    },
+    "CallService!22a9p0n": {
+      "requestPayload": "{\n\"input_integer\": 7\n}",
+      "layout": "vertical",
+      "serviceName": "/set_integers",
+      "foxglovePanelTitle": "Station 8",
+      "buttonText": "XX6_Station",
+      "buttonColor": "#320fe0"
     },
     "RosOut!3qgoe6f": {
       "searchTerms": [],
@@ -323,12 +335,6 @@
       "hardwareIdFilter": "",
       "topicToRender": "/diagnostics",
       "sortByLevel": true
-    },
-    "CallService!xg85": {
-      "requestPayload": "{}",
-      "layout": "horizontal",
-      "foxglovePanelTitle": "Reset E-stop",
-      "buttonText": "Reset E-stop"
     }
   },
   "globalVariables": {},
@@ -344,10 +350,12 @@
           "first": {
             "first": "CallService!42lsn4m",
             "second": "CallService!xg85",
-            "direction": "column"
+            "direction": "column",
+            "splitPercentage": 46.666666666666714
           },
           "second": "StateTransitions!t3lug3",
-          "direction": "row"
+          "direction": "row",
+          "splitPercentage": 23.23781778455516
         },
         "second": {
           "first": "Teleop!2vmc7li",
@@ -358,45 +366,48 @@
           },
           "direction": "row"
         },
-        "direction": "column"
+        "direction": "column",
+        "splitPercentage": 57.55064672351917
       },
-      "direction": "column"
+      "direction": "column",
+      "splitPercentage": 55.645969803795815
     },
     "second": {
       "first": {
         "first": {
-          "first": {
+          "first": "Image!2f9n3sh",
+          "second": {
             "first": {
               "first": {
-                "first": "CallService!28cwb8w",
-                "second": "CallService!gjreck",
+                "first": "CallService!2p6g41a",
+                "second": "CallService!2p2lj2e",
                 "direction": "row"
               },
               "second": {
-                "first": "CallService!25abs9f",
-                "second": "CallService!2yfge3d",
+                "first": "CallService!2qxkhui",
+                "second": "CallService!2p1qnh7",
                 "direction": "row"
               },
-              "direction": "column"
+              "direction": "row"
             },
             "second": {
               "first": {
-                "first": "CallService!4i8ivhy",
-                "second": "CallService!3d46ejx",
+                "first": "CallService!3ovxepu",
+                "second": "CallService!ajrov0",
                 "direction": "row"
               },
               "second": {
-                "first": "CallService!39omm4q",
-                "second": "CallService!1sr8rwa",
+                "first": "CallService!8bvhxa",
+                "second": "CallService!22a9p0n",
                 "direction": "row"
               },
-              "direction": "column"
+              "direction": "row"
             },
-            "direction": "row"
+            "direction": "column",
+            "splitPercentage": 49.80184940554821
           },
-          "second": "Image!2f9n3sh",
-          "direction": "column",
-          "splitPercentage": 42.668428005284014
+          "direction": "row",
+          "splitPercentage": 51.480484522207284
         },
         "second": "RosOut!3qgoe6f",
         "direction": "column",
@@ -410,6 +421,7 @@
       "direction": "column",
       "splitPercentage": 77.1782685805177
     },
-    "direction": "row"
+    "direction": "row",
+    "splitPercentage": 45.88615517673032
   }
 }
